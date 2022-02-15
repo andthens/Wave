@@ -25,6 +25,7 @@ class _landState extends State<land> with SingleTickerProviderStateMixin {
   var songs;
   var mal;
   var hindi;
+  var tamil;
 
   late ScrollController _scrollController;
   late TabController _tabController;
@@ -49,6 +50,13 @@ class _landState extends State<land> with SingleTickerProviderStateMixin {
         .then((s) {
       setState(() {
         hindi = json.decode(s);
+      });
+    });
+    await DefaultAssetBundle.of(context)
+        .loadString("json_files/tamil.json")
+        .then((s) {
+      setState(() {
+        tamil = json.decode(s);
       });
     });
   }
@@ -570,7 +578,7 @@ class _landState extends State<land> with SingleTickerProviderStateMixin {
                             ///////////////
                             ///
                             ListView.builder(
-                                itemCount: mal == null ? 0 : mal.length,
+                                itemCount: tamil == null ? 0 : tamil.length,
                                 itemBuilder: (_, i) {
                                   return GestureDetector(
                                       onTap: () {
@@ -579,7 +587,7 @@ class _landState extends State<land> with SingleTickerProviderStateMixin {
                                             MaterialPageRoute(
                                                 builder: (context) =>
                                                     Audio_Page(
-                                                        audioPath: mal,
+                                                        audioPath: tamil,
                                                         index: i)));
                                       },
                                       child: Container(
@@ -614,7 +622,7 @@ class _landState extends State<land> with SingleTickerProviderStateMixin {
                                                                 .circular(10),
                                                         image: DecorationImage(
                                                             image: AssetImage(
-                                                                mal[i]
+                                                                tamil[i]
                                                                     ["img"]))),
                                                   ),
                                                   SizedBox(
@@ -626,7 +634,7 @@ class _landState extends State<land> with SingleTickerProviderStateMixin {
                                                               .start,
                                                       children: [
                                                         Text(
-                                                          mal[i]["title"],
+                                                          tamil[i]["title"],
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
@@ -641,7 +649,7 @@ class _landState extends State<land> with SingleTickerProviderStateMixin {
                                                           height: 5,
                                                         ),
                                                         Text(
-                                                          mal[i]["text"],
+                                                          tamil[i]["text"],
                                                           style: TextStyle(
                                                               color: Colors
                                                                   .white60,

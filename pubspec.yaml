@@ -92,10 +92,13 @@ flutter:
     - assets/home.jpg
     - assets/Kurup_(film).jpeg
     - assets/malik.jpg
+    - assets/beast2.jpg
+    - assets/beast.png
     - json_files/mal.json
     - json_files/songs.json
     - json_files/hindi.json
     - json_files/wavers.json
+    - json_files/tamil.json
     
 
 
