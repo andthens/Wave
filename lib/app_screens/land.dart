@@ -61,6 +61,28 @@ class _landState extends State<land> with SingleTickerProviderStateMixin {
     });
   }
 
+////////////////////////////////////////////////////////////////////////////////
+  Widget miniPlayer() {
+    Size deviceSize = MediaQuery.of(context).size;
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 500),
+      color: Colors.blue,
+      width: deviceSize.width,
+      height: 50,
+      child: Row(
+        children: [
+          Image(
+            image: AssetImage("assets/atr1.jpg"),
+            fit: BoxFit.cover,
+          ),
+          Text("title"),
+          IconButton(onPressed: () {}, icon: Icon(Icons.play_arrow))
+        ],
+      ),
+    );
+  }
+
+////////////////////////////////////////////////////////////////////////////////
   @override
   void initState() {
     super.initState();
@@ -705,6 +727,7 @@ class _landState extends State<land> with SingleTickerProviderStateMixin {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
+                            miniPlayer(),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [

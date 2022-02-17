@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:miniplayer/miniplayer.dart';
 import 'package:wave_dev/app_screens/audio_system.dart';
 import 'audio_system.dart';
 
