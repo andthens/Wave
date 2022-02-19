@@ -30,7 +30,27 @@ class _ListPageState extends State<ListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(58, 66, 86, 1.0),
-      appBar: topAppBar,
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
+        title: const Text(
+          'Drop',
+          style: TextStyle(
+              fontWeight: FontWeight.bold, color: Colors.white, fontSize: 30),
+        ),
+        elevation: 0.1,
+        backgroundColor: const Color.fromRGBO(58, 66, 86, 1.0),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.favorite),
+            onPressed: () {},
+          )
+        ],
+      ),
       bottomNavigationBar: Container(
           height: 55.0,
           child: BottomAppBar(
@@ -78,13 +98,6 @@ class _ListPageState extends State<ListPage> {
                   hoverColor: Colors.transparent,
                   alignment: Alignment.topRight,
                 ),
-                /*IconButton(
-                  icon: Icon(Icons.upload, color: Colors.white),
-                  onPressed: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => MyApp()));
-                  },
-                ),*/
               ],
             ),
           )),
@@ -130,16 +143,21 @@ class _ListPageState extends State<ListPage> {
             },
           ),
         ),
-        Row(textDirection: TextDirection.rtl, children: <Widget>[
-          IconButton(
-            alignment: Alignment.bottomLeft,
+        Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.blue,
+          ),
+          margin: const EdgeInsets.only(top: 100, left: 220, bottom: 20),
+          child: IconButton(
+            //alignment: Alignment.bottomLeft,
             icon: Icon(Icons.upload, color: Colors.white, size: 30.0),
             onPressed: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => MyApp()));
             },
           ),
-        ])
+        )
       ])),
     );
   }
@@ -262,26 +280,6 @@ Future<void> logout(BuildContext context) async {
   Navigator.of(context)
       .pushReplacement(MaterialPageRoute(builder: (context) => LoginScreen()));
 }
-
-final topAppBar = AppBar(
-  leading: IconButton(
-    onPressed: () {},
-    icon: Icon(Icons.home),
-  ),
-  title: const Text(
-    'Drop',
-    style: TextStyle(
-        fontWeight: FontWeight.bold, color: Colors.white, fontSize: 30),
-  ),
-  elevation: 0.1,
-  backgroundColor: const Color.fromRGBO(58, 66, 86, 1.0),
-  actions: <Widget>[
-    IconButton(
-      icon: Icon(Icons.favorite),
-      onPressed: () {},
-    )
-  ],
-);
 
 Future<List<Map<String, dynamic>>> _loadImages() async {
   List<Map<String, dynamic>> files = [];

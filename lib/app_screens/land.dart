@@ -863,16 +863,17 @@ class _landState extends State<land> with SingleTickerProviderStateMixin {
                               logout(context);
                             },
                           ),
-                          ActionChip(
-                            label: Text("Logout",
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            onPressed: () {
+                          GestureDetector(
+                            onTap: () {
                               logout(context);
                             },
-                          ),
+                            child: Text("Logout",
+                                style: TextStyle(
+                                    fontSize: 20.0,
+                                    fontFamily: 'Lora',
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                          )
                         ],
                       ),
                     ],
